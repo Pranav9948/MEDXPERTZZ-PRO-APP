@@ -1,0 +1,28 @@
+{
+  "name": "mern-app-boiler-plate-setup",
+  "version": "1.0.0",
+  "description": "boiler plate starter code for all react-applications",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "nodemon backend/server.js",
+    "server": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend",
+    "dev": "concurrently \"npm start\" \"npm run client\""
+  },
+  "author": "pranav",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap": "^5.3.0",
+    "express": "^4.18.2",
+    "mongoose": "^7.3.0",
+    "react-bootstrap": "^2.7.4",
+    "react-router-dom": "^6.13.0",
+    "uninstall": "^0.0.0"
+  },
+  "devDependencies": {
+    "concurrently": "^8.1.0",
+    "dotenv": "^16.1.4",
+    "nodemon": "^2.0.22"
+  }
+}
