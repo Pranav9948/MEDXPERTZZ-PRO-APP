@@ -1,0 +1,33 @@
+.backgroundRegister{
+
+  background-color: #9A616D;
+  padding-top: 150px;
+  padding-bottom: 150px;
+  
+}
+
+.login-form input{
+
+    height: 50px !important;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.registerScreen{
+
+    margin: 20px 70px;
+}
+
+@media screen and (max-width: 767px) {
+
+
+    .registerScreen{
+
+        margin:  0px;
+    }
+
+    .logoTexts{
+
+        font-size: 45px !important;
+    }
+}

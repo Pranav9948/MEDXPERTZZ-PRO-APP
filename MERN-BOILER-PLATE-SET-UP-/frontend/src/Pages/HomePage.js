@@ -14,6 +14,7 @@ const HomePage = () => {
     
        <SearchBanner/>
        <BookAppointment/>
+       
         <ApplyForDoctor/> 
        <Working/> 
        {/* <DoctorCard/> */}

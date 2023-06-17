@@ -26,7 +26,7 @@ function Navbars() {
       <Container>
         <Navbar.Brand style={{ marginRight: "100px", fontSize: "10px" }}>
           <Link to="/" style={{ textDecoration: "none" }}>
-           <h2 className="logoText">MedXpertz</h2>
+           <h2 className="logoText text-green-500 ps-4">MedXpertz</h2>
           </Link>
         </Navbar.Brand>
 

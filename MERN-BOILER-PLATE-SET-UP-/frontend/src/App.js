@@ -14,10 +14,12 @@ function App() {
         <Navbars/>
         
       </div>
-      <div className="content-wrap">
+      <div className="content-wrap" >
         <main className="py-4">
+       
           <Outlet />
         </main>
+       
       </div>
       <footer className="fixed-footer" style={{ marginTop: 'calc(100vh - 300px)' }}>
          <Footers/>
