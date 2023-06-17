@@ -1,0 +1,47 @@
+
+
+
+
+.myComponent {
+    background-image: url('../../../ProjectImages/SearchBanner.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 101%;
+    height: 700px;
+  } 
+  
+
+.searchForm{
+
+     width: 40%;
+     margin: 40px auto;
+     
+     
+
+}
+
+.searchText {
+  padding-top: 10vh;
+  padding-bottom: 5vh;
+}
+
+.searchText h1 {
+  font-size: 4vw;
+  margin-top: 80px;
+}
+
+.searchText h3 {
+  font-size: 3vw;
+}
+
+
+@media only screen and (max-width: 767px) {
+    /* CSS styles for mobile devices */
+  
+
+    .searchForm{
+
+        width: 70%;
+
+    }
+}  

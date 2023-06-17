@@ -11,9 +11,15 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 
+
+import HomePage from "./Pages/HomePage";
+
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<App />}>
+
+<Route  path="/" element={<HomePage/>} />
+
       {/* 
       private Routes component  */}
 
