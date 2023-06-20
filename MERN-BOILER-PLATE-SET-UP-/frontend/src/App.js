@@ -4,20 +4,40 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbars from './components/HomePage/Navbars';
 import Footers from './components/HomePage/Footers';
+import ScrollToTop from './components/ScrollToTop';
+import { useSelector } from 'react-redux';
+
 
 function App() {
+
+      const {userDetails}=  useSelector((state)=>state.auth)
+
   return (
     <div className="App">
        <div className="App">
+      
       <div className="fixed-header">
        
-        <Navbars/>
+       {
+         userDetails?.isAdmin ? ' ' :  <Navbars/>
+       }  
         
       </div>
       <div className="content-wrap" >
         <main className="py-4">
+
+       <>
        
-          <Outlet />
+    
+        <Outlet />
+        
+        <ScrollToTop></ScrollToTop>
+
+        
+        </>
+
+       
+        
         </main>
        
       </div>
@@ -25,6 +45,7 @@ function App() {
          <Footers/>
       </footer>
       <ToastContainer />
+    
     </div>
     </div>
   );

@@ -62,16 +62,16 @@ function ApplyForDoctor() {
             <div className="applyDocBtn">
               <Row>
                 <Col md={6}>
-                  <Link to={"/applyfordoctor"}>
-                    <Button variant="warning" size="lg" className="btn1">
+                  <Link to={"/applyfordoctoracc"}>
+                    <Button variant="warning" size="lg" className="btn1 bg-yellow-400 fw-bold">
                       Apply As Doctor
-                    </Button>
+                    </Button> 
                   </Link>{" "}
                 </Col>
 
                 <Col md={5}>
                   <Link to="/viewourdoctors">
-                    <Button variant="warning" size="lg" className="btn2">
+                    <Button variant="warning" size="lg" className="btn2 bg-red-400 fw-bold text-white">
                       View our Doctors
                     </Button>
                   </Link>

@@ -17,9 +17,16 @@ import {  useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import logos from '../images/doctor-gif.gif'
+import { useUserRegisterMutation } from '../redux/slices/userSlice';
+
+
+
+
+
 
 const RegisterPage = () => {
 
+  const [register,{isLoading,isError}]=useUserRegisterMutation()
 
 
 
@@ -107,10 +114,25 @@ const RegisterPage = () => {
     ) {
       try {
 
+          
+         const {data}= await register({name,email,password})
+
+           console.log('45',data)
+
+         if(data?.success){
+           
+          toast.success(data.message)
+          navigate('/login')
+           
+         }
+
+         else{
+
+           toast.error(data.message)
+         }
 
        
-        toast.success('registered successfully')
-        navigate('/login')
+       
         
               
 
@@ -160,9 +182,10 @@ const RegisterPage = () => {
             <MDBCol md='5' >
               <MDBCardBody className='d-flex flex-column'>
                 <div className='d-flex flex-row mt-2 align-items-center'>
-                  <MDBIcon fas icon="cubes fa-3x me-3 pt-5" style={{ color: '#ff6219' }} />
-                  <h1 className="fw-bold mb-0 text-center logoTexts text-yellow-600 fs-1 ps-3 pt-10">MedXpertz</h1>
-                </div>
+                <h1 className="fw-bold mb-0 text-center logoTexts text-yellow-600 fs-1 ps-3 pt-10">
+                    <span><i class="fa-solid fa-user-doctor me-3 text-red-400"></i></span>
+                  MedXpertz</h1>
+                   </div>
                 <h3 className="fw-bold fs-4 text-blue-700 my-4 pb-3 pt-5" style={{ letterSpacing: '1px' }}>
                   Register into your account
                 </h3>

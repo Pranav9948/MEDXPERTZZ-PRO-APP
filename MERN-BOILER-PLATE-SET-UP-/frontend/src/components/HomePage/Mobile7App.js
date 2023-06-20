@@ -1,7 +1,7 @@
 import React from "react";
 import Col from "react-bootstrap/esm/Col";
 import Container from "react-bootstrap/esm/Container";
-import Row from "react-bootstrap/esm/Row";
+import Row from "react-bootstrap/esm/Row"; 
 import "../../styles/components/HomePage/Mobile7App.css";
 import Image from "react-bootstrap/Image";
 import mobile from "../../ProjectImages/mobileAppointment.png";

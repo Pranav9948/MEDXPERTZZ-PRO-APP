@@ -1,0 +1,107 @@
+*{
+   
+    padding: 0;
+    box-sizing: border-box;
+   
+
+}
+
+.bannerk{
+
+    background:linear-gradient(to right, #0f9b8e, #1fc8db);
+   margin-top: 50px;
+    height: 150vh;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    padding-top: 100px;
+    position: relative;
+}
+
+.table-container {
+    background-color: white;
+  }
+
+
+.bannerk .waves{
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+}
+
+
+.bannerk .wavez{
+
+    position: absolute;
+    top: 0;
+    width: 100%;
+    left: 0;
+}
+
+#myTable{
+
+    background-color: #fff!important;
+}
+
+
+
+
+.applyDocimg{
+
+    width: 100%;
+    height: 500px;
+}
+
+
+.bannerImagek{
+
+    background: url('../../../ProjectImages/viewAppointments.jpg');
+     height: 100vh;
+    background-size: cover;
+    
+    overflow: hidden;
+    background-repeat: no-repeat;
+    padding-top: 300px;
+    position: relative;
+   
+    
+}
+
+
+
+@media screen and (max-width: 767px) {
+
+    
+.bannerk{
+
+    background:linear-gradient(to right, #0f9b8e, #1fc8db);
+    margin-top: 50px;
+    height: 450vh;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    padding-top: 100px;
+    position: relative;
+}
+
+
+
+
+.bannerImagek{
+
+    background: url('../../../ProjectImages/viewAppointments.jpg');
+     height: auto;
+    background-size: cover;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    padding-top: 300px;
+    position: relative;
+   
+    
+}
+
+}

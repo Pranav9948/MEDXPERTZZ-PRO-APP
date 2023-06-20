@@ -1,0 +1,31 @@
+.doctor-figure {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  
+  .doctor-img {
+    display: block;
+    margin: auto;
+  }
+  
+
+  table{
+
+    background:-moz-linear-gradient(90deg, rgba(238, 130, 238, 1) 0%, rgba(0, 209, 255, 1) 100%); 
+
+    /* safari 5.1+,chrome 10+ */
+    background:-webkit-linear-gradient(90deg, rgba(238, 130, 238, 1) 0%, rgba(0, 209, 255, 1) 100%);
+
+    /* opera 11.10+ */
+    background:-o-linear-gradient(90deg, rgba(238, 130, 238, 1) 0%, rgba(0, 209, 255, 1) 100%);
+
+    /* ie 6-9 */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00D1FF', endColorstr='#EE82EE', GradientType=0 );
+
+    /* ie 10+ */
+    background:-ms-linear-gradient(90deg, rgba(238, 130, 238, 1) 0%, rgba(0, 209, 255, 1) 100%);
+
+    /* global 94%+ browsers support */
+    background:linear-gradient(90deg, rgba(238, 130, 238, 1) 0%, rgba(0, 209, 255, 1) 100%);
+  }

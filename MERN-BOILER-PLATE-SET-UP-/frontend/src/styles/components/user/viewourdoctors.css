@@ -1,0 +1,169 @@
+*{
+   
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+.bannerz {
+    background: linear-gradient(90deg, #ff8b8b 0%, #c17bff 100%);
+    height: 490vh;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    padding-top: 100px;
+    position: relative;
+  }
+
+
+.bannerz .waves{
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+}
+
+
+.bannerz .wavez{
+
+    position: absolute;
+    top: 0;
+    width: 100%;
+    left: 0;
+}
+
+
+  
+
+
+  .searchForms {
+    position: relative;
+    width: 600px !important;
+    margin-bottom: 160px;
+    margin-left: 300px;
+  }
+  
+  .searchForms input[type="text"] {
+    padding-right: 40px; /* adjust the padding to make room for the icon */
+  }
+  
+  .searchForms i.fas.fa-search {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #999;
+  }
+  
+
+
+.applyDocimg{
+
+    width: 100%;
+    height: 500px;
+}
+
+
+.bannerImagez{
+
+    background: url('../../../ProjectImages/viewOurDocs.jpg');
+     height: 100vh;
+    background-size: cover;
+    
+    overflow: hidden;
+    background-repeat: no-repeat;
+    padding-top: 300px;
+    position: relative;
+   
+    
+}
+
+
+.whyJoinUs{
+
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  height: 400px;
+  text-align: center;
+  transition: all 0.3s ease-in-out;
+  margin-right: 100px;
+
+}
+
+.whyJoinUs i{
+
+    font-size: 100px;
+    text-align: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    color:red
+    
+
+}
+
+
+.whyJoinUs:hover {
+			background-color: rgba(0, 255, 76, 0.626);
+			transform: scale(1.2);
+            color:white
+		}
+
+
+
+
+  @media screen and (max-width: 767px) {
+    /* CSS rules for mobile devices */
+
+
+    .bannerz {
+        background: linear-gradient(90deg, #ff8b8b 0%, #c17bff 100%);
+        height: 470vh;
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+        background-repeat: no-repeat;
+        padding-top: 100px;
+        position: relative;
+        
+      }
+
+      .bannerImagez {
+       
+        background-position: center;
+        background-size: cover;
+    }
+
+
+
+
+
+    .applyDocimg{
+
+        width: 100%;
+        height: 500px;
+       
+    }
+    
+
+
+  .searchForms {
+    position: relative;
+    width: 300px !important;
+    margin-bottom: 160px;
+    margin-left: 100px;
+  }
+  
+  .searchForms input[type="text"] {
+    padding-right: 40px; /* adjust the padding to make room for the icon */
+  }
+  
+  .searchForms i.fas.fa-search {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    color: #999;
+  }
+  }

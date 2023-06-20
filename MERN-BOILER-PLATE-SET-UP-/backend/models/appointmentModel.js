@@ -1,0 +1,50 @@
+import mongoose from "mongoose";
+const appointmentSchema = new mongoose.Schema(
+  {
+    userId: {
+      type: String,
+      required: true,
+    },
+    doctorId: {
+      type: String,
+      required: true,
+    },
+    doctorInfo: {
+      type: Object,
+      required: true,
+    },
+    userInfo: {
+      type: Object,
+      required: true,
+    },
+    date: {
+      type: String,
+      required: true,
+    },
+    time: {
+      type: String,
+      required: true,
+    },
+
+    paymentStatus: {
+      type: String,
+      default:'not done'
+      
+    },
+
+
+
+    status: {
+      type: String,
+      required: true,
+      default: "pending",
+    },
+  },
+  {
+    timestamps: true,
+  }
+);
+
+const appointmentModel = mongoose.model("appointment", appointmentSchema);
+
+export default  appointmentModel

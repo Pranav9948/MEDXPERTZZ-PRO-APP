@@ -1,0 +1,133 @@
+*{
+   
+    padding: 0;
+    box-sizing: border-box;
+   
+
+}
+
+.bannerzz{
+
+         
+    background: linear-gradient(to bottom, #5f2c82, #311a3f);
+    height: 400vh;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    padding-top: 100px;
+    position: relative;
+}
+
+
+.bannerzz .waves{
+
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+}
+
+
+.bannerzz .wavez{
+
+    position: absolute;
+    top: 0;
+    width: 100%;
+    left: 0;
+}
+
+
+
+
+
+
+.applyDocimg{
+
+    width: 100%;
+    height: 500px;
+}
+
+
+.bannerImagezz{
+
+    background: url('../../../ProjectImages/bookAppoiPic.jpg');
+     height: 140vh;
+    background-size: cover;
+    
+    overflow: hidden;
+    background-repeat: no-repeat;
+    padding-top: 300px;
+    position: relative;
+   
+    
+}
+
+
+
+.doctor-info h1 {
+    font-size: 42px;
+    font-weight: bold;
+    margin-top: 28px;
+    margin-bottom: 28px;
+    color: #fff;
+    text-shadow: 2px 2px #ff0000;
+}
+  
+  
+  .doctor-info p {
+    font-size: 28px;
+    margin-bottom: 18px;
+    color: #fff;
+    text-shadow: 5px 5px #0000;
+    font-weight: bold;
+  }
+  
+
+.ant-picker-input input {
+
+    border: none!important;
+}
+
+
+@media screen and (max-width: 767px) {
+
+
+    .bannerzz{
+
+         
+        background: linear-gradient(to bottom, #5f2c82, #311a3f);
+        height: 400vh;
+        background-size: cover;
+        background-position: center;
+        overflow: hidden;
+        background-repeat: no-repeat;
+        padding-top: 100px;
+        position: relative;
+    }
+
+    .doctor-info{
+
+        text-align: center;
+    }
+
+
+    .doctor-info h1 {
+        font-size: 32px;
+        font-weight: bold;
+        margin-top: 28px;
+        margin-bottom: 28px;
+        color: #fff;
+        text-shadow: 2px 2px #ff0000;
+    }
+      
+      
+      .doctor-info p {
+        font-size: 20px;
+        margin-bottom: 18px;
+        color: #fff;
+        text-shadow: 5px 5px #0000;
+        font-weight: bold;
+      }
+
+}

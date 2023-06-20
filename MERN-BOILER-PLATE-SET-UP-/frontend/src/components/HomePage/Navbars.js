@@ -10,16 +10,43 @@ import Badge from "react-bootstrap/Badge";
 import { useNavigate } from "react-router-dom";
 import '../../styles/components/navbar.css'
 import logo from '../../images/doctor-gif.gif'
+import  {LinkContainer}from 'react-router-bootstrap'
+import { useLogoutMutation } from "../../redux/slices/userSlice";
+import { removeCredentials } from "../../redux/slices/authSlice";
+import { toast } from "react-toastify";
+
 
 function Navbars() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+   
+          const  [logout,{isLoading,isError}]  =    useLogoutMutation()
 
   const linkStyle = {
     textDecoration: "none",
   };
 
+  const {userDetails}=useSelector((state)=>state.auth)
+
+
  
+  const logoutHandler=async()=>{
+
+    
+   const res= await logout().unwrap()
+
+   console.log('123',res)
+
+   if(res.success){
+ console.log('loggging out')
+      toast.success(res.message)
+      dispatch(removeCredentials())
+      navigate('/login')
+   }
+
+
+
+  }
 
   return (
     <Navbar bg="light" expand="lg">
@@ -78,25 +105,82 @@ function Navbars() {
                 </Badge>
               </div>
             </Nav.Link>
-            <NavDropdown title={"name"} id="basic-nav-dropdown">
-              <NavDropdown.Item href="/myprofile">my Profile</NavDropdown.Item>
-              <NavDropdown.Item href="/login" onClick={() => dispatch()}>
-                Logout
-              </NavDropdown.Item>
-            </NavDropdown>
-            ) : (
-            <NavDropdown title="Login" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/login">Login</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="">Signup</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
-            )
+            {userDetails !== null && userDetails?.isAdmin ? (
+                <>
+                <Nav.Link className="fw-bold pt-3 fs-5 text-warning">
+                    {userDetails?.name}
+                  </Nav.Link>
+
+                  <NavDropdown
+                    className="text-red-600"
+                    id="basic-nav-dropdown"
+                  >
+                    <LinkContainer to="/admin/listallproducts">
+                      <NavDropdown.Item style={{ color: "red" }}>
+                        Products
+                      </NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/admin/showallusers">
+                      <NavDropdown.Item style={{ color: "red" }}>
+                        Users
+                      </NavDropdown.Item>
+                    </LinkContainer>
+                    <LinkContainer to="/admin/ordersList">
+                      <NavDropdown.Item style={{ color: "red" }}>
+                        Orders
+                      </NavDropdown.Item>
+                    </LinkContainer>
+                    <NavDropdown.Item
+                      onClick={() => logoutHandler()}
+                      style={{ color: "red" }}
+                    >
+                      Logout
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                </>
+              ) : null}
+
+              {userDetails !== null && !userDetails?.isAdmin ? (
+                <>
+                  <Nav.Link className="fw-bold fs-5 text-warning">
+                    {userDetails?.name}
+                  </Nav.Link>
+
+                  <NavDropdown className="text-red-600" id="basic-nav-dropdown">
+                    <LinkContainer to="/view-myorders">
+                      <NavDropdown.Item style={{ color: "red" }}>
+                        View Orders
+                      </NavDropdown.Item>
+                    </LinkContainer>
+                    <NavDropdown.Item
+                      onClick={() => logoutHandler()}
+                      style={{ color: "red" }}
+                    >
+                      Logout
+                    </NavDropdown.Item>
+                  </NavDropdown>
+                </>
+              ) : null}
+
+              {userDetails=== null ? (
+                <NavDropdown
+                className="text-red-600"
+                  title={"Login"}
+                  id="basic-nav-dropdown"
+                >
+                  <LinkContainer to="/register">
+                    <NavDropdown.Item style={{ color: "red" }}>
+                      Register
+                    </NavDropdown.Item>
+                  </LinkContainer>
+                  <LinkContainer to="/login">
+                    <NavDropdown.Item style={{ color: "red" }}>
+                      Login
+                    </NavDropdown.Item>
+                  </LinkContainer>
+                </NavDropdown>
+              ) : null}
+            
           </Nav>
         </Navbar.Collapse>
       </Container>
