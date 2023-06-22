@@ -8,6 +8,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useChangeAppointmentStatusMutation, useGetDoctorAppointmentsQuery } from "../../redux/slices/DoctorSlices";
 import { toast } from "react-toastify";
+import Gif from "../../components/Gif";
+import Message from "../../components/Message";
 
 function ViewDoctorAppointment() {
 
@@ -128,7 +130,35 @@ function ViewDoctorAppointment() {
  
 
   return (
-    <DoctorsLayout>
+
+    <div>
+   <DoctorsLayout>
+
+
+
+
+   <>
+   { statusLoad && <Gif />}
+  
+   
+
+   {isLoading ? (
+     <Gif />
+   ) : isError ? (
+     <Message variant="danger">
+       {isError?.data.message || isError.error}
+     </Message>
+   ) : (
+
+
+
+
+
+ <>
+
+
+
+    
 
 
 
@@ -139,8 +169,17 @@ function ViewDoctorAppointment() {
 
   <Table id="mytable" columns={columns} dataSource={appointments}  style={{ backgroundColor: "white" }} />
 
-    </DoctorsLayout>
-  );
-}
+   
+    </>
+
+    
+    
+)}
+
+</>
+</DoctorsLayout>
+</div>
+);
+};
 
 export default ViewDoctorAppointment;

@@ -35,13 +35,13 @@ const HomePage = () => {
 
       <ApplyForDoctor />
       <Working />
-      {/* <DoctorCard/> */}
+     
       <Mobile7App />
       {/* <onecariusel/> */}
 
       <Health8Blog/>
 
-      {/* some of them are pending finish them before hosting */}
+      
     </div>
   );
 };

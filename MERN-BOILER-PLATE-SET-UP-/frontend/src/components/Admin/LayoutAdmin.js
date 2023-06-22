@@ -32,7 +32,7 @@ function LayoutAdmin(props) {
     },
     {
       name: "Doctors",
-      path: "/admin/doctorslist",
+      path: "/viewourdoctors",
       icon: "ri-user-star-line",
     },
   ];
@@ -62,7 +62,7 @@ function LayoutAdmin(props) {
 
 
   return (
-    <div className="main w-fit">
+    <div className="main w-fit" style={{marginTop:'100px'}}>
       <div className="d-flex layout">
         <div className="sidebar">
           <div className="sidebar-header">

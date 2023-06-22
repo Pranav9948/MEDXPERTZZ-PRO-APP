@@ -6,7 +6,7 @@ import Note from "../models/noteModel.js";
 
 // @desc    getDoctorInfoById
 // @route   GET /api/users/get-doctor-info-by-user-id
-// @access  Private,DOCTOR
+// @access  Private,DOCTOR   
 
 
 

@@ -9,6 +9,8 @@ import {
 } from "../../redux/slices/DoctorSlices";
 import { toast } from "react-toastify";
 import { Button } from "react-bootstrap";
+import Gif from "../../components/Gif";
+import Message from "../../components/Message";
 
 function ListBlogs() {
   const dispatch = useDispatch();
@@ -42,8 +44,33 @@ function ListBlogs() {
   };
 
   return (
+
     <div>
-      <DoctorsLayout>
+    <DoctorsLayout>
+ 
+ 
+ 
+ 
+    <>
+    { deleteLoad && <Gif />}
+   
+    
+ 
+    {isLoading ? (
+      <Gif />
+    ) : isError ? (
+      <Message variant="danger">
+        {isError?.data.message || isError.error}
+      </Message>
+    ) : (
+ 
+ 
+ 
+ 
+ 
+  <>
+    <div>
+     
         <div className="container">
           <h1 className="text-center my-4"> Your Health Blogs</h1>
 
@@ -107,9 +134,18 @@ function ListBlogs() {
             </Link>
           </div>
         </div>
-      </DoctorsLayout>
+      
     </div>
-  );
-}
+    </>
+
+    
+    
+)}
+
+</>
+</DoctorsLayout>
+</div>
+);
+};
 
 export default ListBlogs;

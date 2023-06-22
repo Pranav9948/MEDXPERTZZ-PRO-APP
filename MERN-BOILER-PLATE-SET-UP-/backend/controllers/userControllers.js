@@ -307,10 +307,15 @@ const deleteAllNotifications = async (req, res) => {
 
 const getApprovedDoctorsList = async (req, res) => {
   try {
+
+    console.log('reac')
     const getApprovedDoctors = await DOCTOR.find({ status: "Approved" });
+    console.log('23',getApprovedDoctors)
 
     res.status(200).send(getApprovedDoctors);
   } catch (err) {
+
+    console.log(err);
     res
       .status(500)
       .send({ message: "cannot fetch approved doctors", success: false, err });

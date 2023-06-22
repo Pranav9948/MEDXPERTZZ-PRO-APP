@@ -13,7 +13,7 @@ import {
 } from 'mdb-react-ui-kit';
 import '../styles/pages/register.css';
 import { Button, Form } from 'react-bootstrap';
-import {  useNavigate } from 'react-router-dom';
+import {  Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import logos from '../images/doctor-gif.gif'
@@ -256,6 +256,7 @@ const RegisterPage = () => {
           <Button variant="danger" className="mb-5 mt-3 bg-red-400 text-white w-full h-16" type="submit">
             Register
           </Button>
+          <Link to='/login'><span className="text-blue-600">Already have an account ? Login </span></Link>
         </Form>
        
     </div>

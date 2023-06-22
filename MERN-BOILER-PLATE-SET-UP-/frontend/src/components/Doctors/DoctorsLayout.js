@@ -82,7 +82,7 @@ function  DoctorsLayout({ children }) {
   const role = "Doctor"
    
   return (
-    <div className="mainD">
+    <div className="mainD" style={{marginTop:'100px'}}>
       <div className="d-flex layout">
         <div className="sidebarD">
           <div className="sidebar-headerD text-center">
@@ -106,7 +106,7 @@ function  DoctorsLayout({ children }) {
                   }`}
                 >
                   <i className={menu.icon}></i>
-                  {!collapsed && <Link to={'/doctor/profile'}>{menu.name}</Link>}
+                  {!collapsed && <Link to={menu.path}>{menu.name}</Link>}
                 </div>
               );
             })}

@@ -34,7 +34,7 @@ router.patch("/update-doctor-profile",Protect,Doctor,updateDoctorProfile);
 
 router.get("/get-appointments-by-doctor-id",Protect,Doctor,getAppointmentOfDoctor );
 
-router.get("/getdoctorblog",Protect,Doctor,getDoctorBlogs );
+router.get("/getdoctorblog",Protect,Doctor,getDoctorBlogs);
   
 router.post("/change-appointment-status",Protect,Doctor,changeAppointmentStatus);
 

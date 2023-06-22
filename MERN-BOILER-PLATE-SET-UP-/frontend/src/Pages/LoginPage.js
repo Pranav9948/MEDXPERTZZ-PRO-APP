@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import logos from '../images/doctLogin.gif'
 import { Button, Form } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
 import { useUserLoginMutation } from '../redux/slices/userSlice'
 import { setCredentials } from '../redux/slices/authSlice'
@@ -180,12 +180,14 @@ const LoginPage = () => {
 
                 <Button
                   variant="danger"
-                  className="mb-5 mt-3 loginBtn bg-red-500 text-white w-full h-10"
+                  className=" mt-3 loginBtn bg-red-500 text-white w-full h-10"
                   type="submit"
                 >
                   Login
                 </Button>
               </Form>
+
+              <Link to='/register'><span className="text-blue-600 mb-5">Dont have an account ? Register </span></Link>
        
        
     </div>

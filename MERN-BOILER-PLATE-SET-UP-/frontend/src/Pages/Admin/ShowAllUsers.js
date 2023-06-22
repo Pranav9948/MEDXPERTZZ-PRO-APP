@@ -9,6 +9,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { confirmAlert } from 'react-confirm-alert';
 import 'react-confirm-alert/src/react-confirm-alert.css';
 import { toast } from 'react-toastify'
+import Gif from '../../components/Gif'
+import Message from '../../components/Message'
 
 const ShowAllUsers = () => {
 
@@ -53,8 +55,6 @@ const unBlockUserApiRequest = async(userId) => {
      
 };
 
-
-    
 
 
     
@@ -129,9 +129,34 @@ const unBlockUserApiRequest = async(userId) => {
   };
   
   return (
+
+   
     <div>
      <LayoutAdmin>
 
+
+
+
+    <>
+    { deleteuserLoad && <Gif />}
+    {blockuserLoad   && <Gif />}
+    {unblockuserLoad && <Gif />}
+    
+
+    {isLoading ? (
+      <Gif />
+    ) : isError ? (
+      <Message variant="danger">
+        {isError?.data.message || isError.error}
+      </Message>
+    ) : (
+
+
+
+
+
+  <>
+    
     
      <h1 className="text-center mb-5 fs-1 fw-bold">ALL USERS</h1>
         <div className="mt-5 w-0.5">
@@ -291,11 +316,16 @@ const unBlockUserApiRequest = async(userId) => {
           
      
      
+</>
 
-
-     </LayoutAdmin>
+    
+    
+      )}
+     
+    </>
+    </LayoutAdmin>
     </div>
-  )
-}
+  );
+};
 
 export default ShowAllUsers

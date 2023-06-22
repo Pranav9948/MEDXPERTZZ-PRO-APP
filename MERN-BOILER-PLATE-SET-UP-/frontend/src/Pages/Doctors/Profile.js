@@ -10,6 +10,9 @@ import Container from "react-bootstrap/esm/Container";
 import 'dayjs/locale/es'; 
 import { useGetDoctorzProfileQuery, useUpdateDoctorprofileMutation } from "../../redux/slices/DoctorSlices";
 import { toast } from "react-toastify";
+import Gif from "../../components/Gif";
+import Message from "../../components/Message";
+import DoctorsLayout from "../../components/Doctors/DoctorsLayout";
 
 function Profile() {
 
@@ -346,8 +349,31 @@ function handleInputChangeCN(event) {
 
   return (
     
+    <div>
+   <DoctorsLayout>
 
-    <Layout>
+
+
+
+   <>
+   { uploadLoad && <Gif />}
+  
+   
+
+   {isLoading ? (
+     <Gif />
+   ) : isError ? (
+     <Message variant="danger">
+       {isError?.data.message || isError.error}
+     </Message>
+   ) : (
+
+
+
+
+
+ <>
+    
 
     <form encType="multipart/form-data" onSubmit={handleFormSubmit} >
     <div className="grid-container">
@@ -539,9 +565,18 @@ onChange={selectTimeSlots}
 
 
 
-  </Layout>
+ 
 
-  );
-}
+  </>
+
+    
+    
+)}
+
+</>
+</DoctorsLayout>
+</div>
+);
+};
 
 export default Profile;

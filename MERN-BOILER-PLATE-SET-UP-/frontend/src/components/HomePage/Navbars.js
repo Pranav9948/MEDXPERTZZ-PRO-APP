@@ -80,7 +80,7 @@ function Navbars() {
               style={{ textDecoration: "none" }}
               className="mt-2"
             >
-              Find Doctors
+               Doctors
             </Link>
             <NavDropdown title="Health Blogs" id="basic-nav-dropdown">
               <Link

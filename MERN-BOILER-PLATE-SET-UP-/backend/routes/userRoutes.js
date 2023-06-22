@@ -50,7 +50,7 @@ router.post("/mark-all-notifications-as-seen",Protect,markAllAsSeen);
   
 router.post("/delete-all-notifications",Protect,deleteAllNotifications);
 
-router.get("/getAllApprovedDoctors",Protect,getApprovedDoctorsList)
+router.get("/getAllApprovedDoctors",getApprovedDoctorsList) 
 
 router.post("/book-appointment",Protect,BookAppointmentz)
 
