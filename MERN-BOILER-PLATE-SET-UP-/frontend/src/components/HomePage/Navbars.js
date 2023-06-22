@@ -30,6 +30,7 @@ function Navbars() {
 
 
  
+ 
   const logoutHandler=async()=>{
 
     
@@ -96,12 +97,16 @@ function Navbars() {
                 <i className="ri-notification-line header-action-icon px-1"></i>{" "}
               </div>
               <div>
+
+
+            
+
                 <Badge
-                  count={"2"}
+                 
                   onClick={() => navigate("/your-notifications")}
-                  className="bg-success"
+                  bg="success"
                 >
-                  {}
+                  {userDetails?.unseenNotifications?.length}
                 </Badge>
               </div>
             </Nav.Link>
@@ -147,9 +152,9 @@ function Navbars() {
                   </Nav.Link>
 
                   <NavDropdown className="text-red-600" id="basic-nav-dropdown">
-                    <LinkContainer to="/view-myorders">
+                    <LinkContainer to="/myprofile">
                       <NavDropdown.Item style={{ color: "red" }}>
-                        View Orders
+                        View Profile
                       </NavDropdown.Item>
                     </LinkContainer>
                     <NavDropdown.Item

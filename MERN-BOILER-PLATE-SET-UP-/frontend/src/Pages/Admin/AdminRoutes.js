@@ -6,7 +6,7 @@ const AdminRoutes = () => {
   const { userDetails } = useSelector((state) => state.auth);
 
   return (
-    <div>{userDetails.isAdmin ? <Outlet /> : <Navigate to={"/login"} />}</div>
+    <div>{userDetails?.isAdmin ? <Outlet /> : <Navigate to={"/login"} />}</div>
   );
 };
 

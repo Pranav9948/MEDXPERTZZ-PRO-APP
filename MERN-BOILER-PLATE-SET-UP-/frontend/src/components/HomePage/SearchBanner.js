@@ -34,11 +34,11 @@ function SearchBanner() {
   <div className='searchForm'>
     <Form onSubmit={handleSubmit}>
       <Row className="align-items-center" style={{ marginTop: '-80px' }}>
-        <Col xl={8} lg={6} className="mt-2">
+        <Col xl={8} lg={6} className="mt-3">
           <FormControl type="text" placeholder="Search for Doctors..." className="form-control-lg" onChange={(e) => setSearch(e.target.value)} />
         </Col>
-        <Col xl={4} lg={6} className="my-1">
-          <Button type="submit" className="btn-lg  mt-2">Search</Button>
+        <Col xl={4} lg={6}>
+          <Button type="submit" className="btn-lg">Search</Button>
         </Col>
       </Row>
     </Form>

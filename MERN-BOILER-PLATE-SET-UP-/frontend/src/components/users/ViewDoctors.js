@@ -7,8 +7,12 @@ import ListGroup from "react-bootstrap/ListGroup";
 import { Link } from "react-router-dom";
 import { Card, Row, Button } from "react-bootstrap";
 import { useGetAllApprovedDoctorsQuery } from "../../redux/slices/userSlice";
+import Gif from '../Gif'
+import Message from '../Message'
 
 function ViewDoctors({ doctor }) {
+
+  
   const [viewAllDoctors, setViewAllDoctors] = useState([]);
   const [showDetails, setShowDetails] = useState(false);
 
@@ -39,8 +43,21 @@ function ViewDoctors({ doctor }) {
   console.log("7899", filteredDoctors);
 
   return (
+
+    <>
+   
+
+    {isLoading ? (
+      <Gif />
+    ) : isError ? (
+      <Message variant="danger">
+        {isError?.data.message || isError.error}
+      </Message>
+    ) : (
+
     <>
       <div className="bannerImagez"></div>
+
       <div className="bannerz">
         <div className="bannerContentz">
           <h1 className="text-center fw-bold fs-1" style={{ marginBottom: "150px" }}>
@@ -139,34 +156,34 @@ function ViewDoctors({ doctor }) {
                         />
                       </div>
                       <Card.Body>
-                        <Card.Title className="text-center">
+                        <Card.Title className="text-center py-2">
                           {showDetails ? (
                             ` DR ${doctor.firstName} ${doctor.lastName}`
                           ) : (
                             ` DR ${doctor.firstName} ${doctor.lastName}`
                           )}
                         </Card.Title>
-                        <Card.Text className="text-center">
+                        <Card.Text className="text-center py-2">
                           <h6>{doctor.specialization}</h6>
                         </Card.Text>
                         {showDetails && (
                           <>
                             <hr />
-                            <Card.Text className="text-center">
+                            <Card.Text className="text-center py-2">
                               Fee: Rs. {doctor.feePerCunsultation}
                             </Card.Text>
                             <hr />
-                            <Card.Text className="text-center">
+                            <Card.Text className="text-center py-2">
                               Experience: {doctor.experience} years
                             </Card.Text>
                             <hr />
-                            <Card.Text className="text-center">
+                            <Card.Text className="text-center py-2">
                               Timings: {doctor.timings[0]} - {doctor.timings[1]}
                             </Card.Text>
 
-                            <Card.Text className="text-center">
+                            <Card.Text className="text-center py-2" >
                               <Link to={`/bookDoctorAppointment/${doctor._id}`}>
-                                <Button className="mt-4" style={{background:'green'}}>
+                                <Button className="mt-4 bg-black">
                                   Book Now
                                 </Button>
                               </Link>
@@ -205,7 +222,10 @@ function ViewDoctors({ doctor }) {
         </svg>
       </div>
     </>
+    )}
+    </>
   );
-}
+};
+
 
 export default ViewDoctors;

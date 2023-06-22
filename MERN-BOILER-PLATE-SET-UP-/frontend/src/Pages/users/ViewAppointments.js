@@ -1,6 +1,7 @@
 import React from 'react'
 import Container from 'react-bootstrap/esm/Container'
-
+import Gif from '../../components/Gif'
+import Message from '../../components/Message'
 import '../../styles/pages/user/viewAppointmentzz.css'
 import  { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -170,10 +171,27 @@ function ViewAppointments() {
   return (
 
 
-    <div>
-     
-     
+    <>
 
+
+{cancelLoad && <Gif />}
+   
+    
+      
+
+      {isLoading ? (
+        <Gif />
+      ) : isError ? (
+        <Message variant="danger">
+          {isError?.data.message || isError.error}
+        </Message>
+      ) : (
+
+
+
+
+
+    <div>
       
     <div className="bannerImagek"></div>
       <div className="bannerk">
@@ -217,9 +235,10 @@ function ViewAppointments() {
 
 
     </div>
-  )
-
-  }
+    )}
+    </>
+  );
+};
 
 
 export default ViewAppointments

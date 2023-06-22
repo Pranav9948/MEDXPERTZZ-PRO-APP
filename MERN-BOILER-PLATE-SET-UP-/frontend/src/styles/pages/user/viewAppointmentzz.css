@@ -10,7 +10,7 @@
 
     background:linear-gradient(to right, #0f9b8e, #1fc8db);
    margin-top: 50px;
-    height: 150vh;
+    height: 350vh;
     background-size: cover;
     background-position: center;
     overflow: hidden;
@@ -95,10 +95,11 @@
 
     background: url('../../../ProjectImages/viewAppointments.jpg');
      height: auto;
-    background-size: cover;
+    background-size: contain;
     overflow: hidden;
     background-repeat: no-repeat;
     padding-top: 300px;
+    margin-top: 100px;
     position: relative;
    
     

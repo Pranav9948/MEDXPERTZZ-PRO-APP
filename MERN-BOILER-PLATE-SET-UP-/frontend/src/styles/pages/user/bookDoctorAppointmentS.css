@@ -98,12 +98,12 @@
          
         background: linear-gradient(to bottom, #5f2c82, #311a3f);
         height: 400vh;
-        background-size: cover;
-        background-position: center;
+        background-size: contain;
         overflow: hidden;
         background-repeat: no-repeat;
-        padding-top: 100px;
+        margin-top: -940px;
         position: relative;
+        
     }
 
     .doctor-info{
@@ -120,6 +120,14 @@
         color: #fff;
         text-shadow: 2px 2px #ff0000;
     }
+
+    .drName{
+
+        font-size: 40px;
+        margin: 70px auto;
+        font-weight: 700;
+        padding-top: 50px;
+    }
       
       
       .doctor-info p {
@@ -129,5 +137,20 @@
         text-shadow: 5px 5px #0000;
         font-weight: bold;
       }
+
+      .bannerImagezz{
+
+        background: url('../../../ProjectImages/bookAppoiPic.jpg');
+         height: 140vh;
+        background-size: contain;
+
+        
+        overflow: hidden;
+        background-repeat: no-repeat;
+        margin-top: 100px;
+        position: relative;
+       
+        
+    }
 
 }

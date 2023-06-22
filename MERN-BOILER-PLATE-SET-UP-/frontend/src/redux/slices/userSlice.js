@@ -188,7 +188,51 @@ checkAvailiabilty:builder.mutation({
           
         }),
         
+        
 
+
+
+        getBlogzUser: builder.query({
+            query: () => ({
+              url: `${USERS_URL}/getBlogs`,
+            }),   
+      keepUnusedDataFor: 5,  
+       
+    }),
+     
+    
+    
+    getDetailedBlog: builder.query({
+        query: (blogid) => ({
+          url: `${USERS_URL}/getdetailedblog/${blogid}`,
+        }),   
+  keepUnusedDataFor: 5,  
+   
+}),
+
+
+
+getUserProfile: builder.query({
+    query: () => ({
+      url: `${USERS_URL}/profile`,
+    }),   
+keepUnusedDataFor: 5,  
+
+}),
+
+ 
+
+
+ userUpdateprofile: builder.mutation({
+    query: (data) => ({
+      url: `${USERS_URL}/profile`,   
+      method: "PATCH",
+      body:data
+     
+    }),
+
+
+  }), 
 
 
        
@@ -199,7 +243,7 @@ checkAvailiabilty:builder.mutation({
 export const {useUserLoginMutation,useLogoutMutation,useUserRegisterMutation,useApplyForDoctorAccountMutation,
 useUploadImageMutation,useGetAllApprovedDoctorsQuery,useGetDoctorByIdQuery,useCheckAvailiabiltyMutation,
 useBookAppointmentMutation,useOnlinebookAppointmentMutation,useGetAppointmentDataQuery,useCancelAppointmentsMutation,
-useSearchDoctorsMutation
+useSearchDoctorsMutation,useGetBlogzUserQuery,useGetDetailedBlogQuery,useGetUserProfileQuery,useUserUpdateprofileMutation
 
 
 

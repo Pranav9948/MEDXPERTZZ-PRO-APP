@@ -11,6 +11,12 @@ code {
     monospace;
 }
 
+.blog-card {
+  width: 300px;
+  height: 400px;
+
+}
+
 
 
 .logoText{

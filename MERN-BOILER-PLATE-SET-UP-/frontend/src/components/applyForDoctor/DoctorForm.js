@@ -19,6 +19,8 @@ import { useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/esm/Container";
 import { useApplyForDoctorAccountMutation, useUploadImageMutation } from "../../redux/slices/userSlice";
 import { toast } from "react-toastify";
+import Gif from "../Gif";
+import Message from "../Message";
 
 
 
@@ -85,33 +87,7 @@ function DoctorForm({ onFinish, initivalValues }) {
            }
          
 
-        // const response = await axiosConfig.post(
-
-
-        //   "/api/users/apply-doctor-account",
-        //   {
-        //     URLS,
-        //     DoctorURLS,
-        //     ...values,
-        //     userId: userInfo?._id,
-            
-            
-            
-        //   },
-        //   {
-        //     headers: {
-        //       Authorization: `Bearer ${localStorage.getItem("doctorAppToken")}`,
-        //     },
-        //   }
-        // );
-
-
-        // if (response.data.success) {
-        //   ;
-        //   navigate("/successapplyfordoctor");
-        // } else {
-         
-        // }
+       
 
 
       } catch (err) {
@@ -421,6 +397,19 @@ function handleInputChangeCN(event) {
   
 
   return (
+
+    <>
+   
+
+    {isLoading ? (
+      <Gif />
+    ) : isError ? (
+      <Message variant="danger">
+        {isError?.data.message || isError.error}
+      </Message>
+    ) : (
+
+
     <form encType="multipart/form-data" onSubmit={handleFormSubmit}>
       <div className="grid-container">
       <div>
@@ -624,8 +613,10 @@ function handleInputChangeCN(event) {
       </div>
       
     </form>
+    )}
+    </>
   );
-}
+};
 
 
 export default DoctorForm;
@@ -638,7 +629,7 @@ export default DoctorForm;
 
 
 
-//  import { useState } from 'react';
+
 //  import axiosConfig from "../../../axiosConfig";
 
 // const DoctorForm = () => {

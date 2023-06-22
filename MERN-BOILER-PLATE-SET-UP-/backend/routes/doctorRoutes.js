@@ -1,5 +1,6 @@
 
 import  express  from "express"
+import {Protect,Doctor} from '../middleware/authMiddleware.js'
 
 const router = express.Router();
 
@@ -24,26 +25,26 @@ import {
 
 
 
-router.post("/get-doctor-info-by-user-id",getDoctorInfoById);
+router.get("/get-doctor-info-by-user-id",Protect,Doctor,getDoctorInfoById);
 
 
 
-router.patch("/update-doctor-profile",updateDoctorProfile);
+router.patch("/update-doctor-profile",Protect,Doctor,updateDoctorProfile);
 
 
-router.get("/get-appointments-by-doctor-id",getAppointmentOfDoctor );
+router.get("/get-appointments-by-doctor-id",Protect,Doctor,getAppointmentOfDoctor );
 
-router.get("/getdoctorblog",getDoctorBlogs );
+router.get("/getdoctorblog",Protect,Doctor,getDoctorBlogs );
   
-router.post("/change-appointment-status",changeAppointmentStatus);
+router.post("/change-appointment-status",Protect,Doctor,changeAppointmentStatus);
 
  
-router.post("/create",createBlogs); 
+router.post("/create",Protect,Doctor,createBlogs); 
   
-router.put("/editBlog/:blogId",editDoctorBlogs);
+router.patch("/editBlog/:blogId",Protect,Doctor,editDoctorBlogs);
 
   
-router.delete("/deleteBlog/:blogId",DeleteNote);
+router.delete("/deleteBlog/:blogId",Protect,Doctor,DeleteNote);
 
 
 

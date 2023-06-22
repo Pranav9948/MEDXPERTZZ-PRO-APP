@@ -28,6 +28,18 @@ import BookDoctorAppointment from "./Pages/users/BookDoctorAppointment";
 import PrivateRoutes from "./components/PrivateRoutes";
 import ViewAppointments from "./Pages/users/ViewAppointments";
 import SearchUsers from "./Pages/users/SearchUsers";
+import DoctorsRoutes from "./components/Doctors/DoctorsRoutes";
+import DoctorsHomePage from "./Pages/Doctors/DoctorsHomePage";
+import ViewDoctorAppointment from "./Pages/Doctors/ViewDoctorAppointment";
+import Profile from "./Pages/Doctors/Profile";
+import ListBlogs from "./Pages/Doctors/ListBlogs";
+import DoctorBlogz from "./Pages/Doctors/DoctorBlogz";
+import EditBlogs from "./Pages/Doctors/EditBlogs";
+import SingleBlog from "./Pages/users/SingleBlog";
+import BlogList from "./Pages/users/BlogList";
+import UserProfile from "./Pages/users/UserProfile";
+import Gif from "./components/Gif";
+import UserNotifications from "./Pages/users/UserNotifications";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -38,15 +50,32 @@ const router = createBrowserRouter(
       <Route path="/applyfordoctoracc" element={<ApplyForDoctorAcc />} />
       <Route path="/successapplyfordoctor" element={<SuccessApplyDoctor />} />
       <Route path="/viewourdoctors" element={<ViewOurDoctors />} />
+      <Route path="/search-results" element={<SearchUsers />} />
+
+
+      <Route path="/gif" element={<Gif />} />
+
 
       <Route
-        path="/search-results"
+        path="/detailedblog/:blogid"
         element={
-          
-           <SearchUsers/>
-          
+         
+            <SingleBlog/>
+         
         }
       />
+
+<Route
+        path="/getallblogs"
+        element={
+         
+            <BlogList/>
+         
+        }
+      />
+
+
+
       {/* 
       private Routes component  */}{" "}
       <Route path="" element={<PrivateRoutes />}>
@@ -54,6 +83,26 @@ const router = createBrowserRouter(
           path="/bookDoctorAppointment/:id"
           element={<BookDoctorAppointment />}
         />
+
+<Route
+        path="/your-notifications"
+        element={
+         
+            <UserNotifications/>
+          
+        }
+      />
+
+
+<Route
+        path="/myprofile"
+        element={
+         
+            <UserProfile />
+         
+        }
+      />
+
 
         <Route path="/view-appointments" element={<ViewAppointments />} />
       </Route>
@@ -70,6 +119,35 @@ const router = createBrowserRouter(
           path="/detailedDoctorsVerifyPage/:doctorId"
           element={<DetailedDoctorverify />}
         />
+      </Route>
+      {/* 
+  DoctorRoutes component */}
+      {/* DOCTORSpAGES */}
+      <Route path="" element={<DoctorsRoutes />}>
+        <Route path="/doctorhome" element={<DoctorsHomePage />} />
+
+        <Route
+          path="/viewDoctorAppointments"
+          element={<ViewDoctorAppointment />}
+        />
+
+        <Route path="/doctor/profile" element={<Profile />} />
+
+        <Route path="/createhealthblogs" element={<DoctorBlogz />} />
+
+        <Route path="/yourblogs" element={<ListBlogs />} />
+
+        <Route path="/editblog/:blogId" element={<EditBlogs />} />
+
+        {/* Doctors Blog */}
+
+        {/* <Route
+        path="*"
+        element={
+            <Notfound />
+         
+        }
+      /> */}
       </Route>
     </Route>
   )

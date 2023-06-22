@@ -47,8 +47,6 @@ export const adminApiSlice=apiSlice.injectEndpoints({
         body:data
        
       }),
-
-
     }),         
 
 

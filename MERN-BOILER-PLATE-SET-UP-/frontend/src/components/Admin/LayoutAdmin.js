@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import "../../styles/components/Admin/layoutAdmin.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -9,15 +8,13 @@ import { toast } from "react-toastify";
 import { removeCredentials } from "../../redux/slices/authSlice";
 import { useLogoutMutation } from "../../redux/slices/userSlice";
 
-
 function LayoutAdmin(props) {
   const [collapsed, setCollapsed] = useState(false);
-  const {userDetails} = useSelector((state) => state.auth);
-  
- 
+  const { userDetails } = useSelector((state) => state.auth);
+
   const dispatch = useDispatch();
-   
-          const  [logout,{isLoading,isError}]  =    useLogoutMutation()
+
+  const [logout, { isLoading, isError }] = useLogoutMutation();
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -38,32 +35,31 @@ function LayoutAdmin(props) {
       path: "/admin/doctorslist",
       icon: "ri-user-star-line",
     },
-  
   ];
 
   const menuToBeRendered = userDetails?.isAdmin && adminMenu;
 
   const role = userDetails?.isAdmin && "Admin";
 
-
-
   const logoutHandler=async()=>{
 
+    console.log('logouytttt')
     
-    const res= await logout().unwrap()
- 
-    console.log('123',res)
- 
-    if(res.success){
-  console.log('loggging out')
-       toast.success(res.message)
-       dispatch(removeCredentials())
-       navigate('/login')
-    }
- 
- 
- 
+   const res= await logout().unwrap()
+
+   console.log('123',res)
+
+   if(res.success){
+ console.log('loggging out')
+      toast.success(res.message)
+      dispatch(removeCredentials())
+      navigate('/login')
    }
+
+
+
+  }
+
 
   return (
     <div className="main w-fit">
@@ -89,15 +85,13 @@ function LayoutAdmin(props) {
                 </div>
               );
             })}
-            <div
-              className="d-flex menu-item logout-menu-item"
-              onClick={() => {
-                localStorage.clear();
-                navigate("/login");
-              }}
-            >
-              <i className="ri-logout-circle-line"></i>
-              {!collapsed && <Link to="/login" onClick={logoutHandler}>Logout</Link>}
+            <div className={`d-flex menu-item`}>
+              <i className="ri-logout-circle-line" onClick={logoutHandler}></i>
+              {!collapsed && (
+                <button className="bg-orange-400 p-1" onClick={logoutHandler}>
+                  Logout
+                </button>
+              )}
             </div>
           </div>
         </div>

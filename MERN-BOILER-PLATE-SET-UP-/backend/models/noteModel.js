@@ -1,5 +1,5 @@
-const mongoose = require("mongoose");
-const Doctor=require('../models/doctorModel')
+import mongoose from "mongoose";
+import  Doctor  from "../models/doctorModel.js";
 
 const noteSchema = mongoose.Schema(
   {
@@ -11,7 +11,7 @@ const noteSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    pic: {
+    image: {
       type: String,
       required: true,
     },
@@ -28,4 +28,4 @@ const noteSchema = mongoose.Schema(
 
 const Note = mongoose.model("Note", noteSchema);
 
-module.exports = Note;
+export default Note

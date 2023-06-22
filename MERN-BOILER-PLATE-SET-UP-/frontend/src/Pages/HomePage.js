@@ -6,6 +6,7 @@ import Working from "../components/HomePage/Working";
 import Mobile7App from "../components/HomePage/Mobile7App";
 import { useSelector } from "react-redux";
 import {useNavigate} from "react-router-dom";
+import Health8Blog from "../components/HomePage/Health8Blog";
 
 const HomePage = () => {
   const { userDetails } = useSelector((state) => state.auth);
@@ -15,9 +16,15 @@ const HomePage = () => {
     useEffect(() => {
       if (userDetails?.isAdmin) {
         navigate("/admin/showallusers");
-      } else if (userDetails) {
+      } else if (userDetails?.isDoctor) {
+        navigate("/viewDoctorAppointments");
+      }
+
+      else{
         navigate("/");
       }
+
+
     }, [userDetails, navigate]);
   
 
@@ -31,6 +38,8 @@ const HomePage = () => {
       {/* <DoctorCard/> */}
       <Mobile7App />
       {/* <onecariusel/> */}
+
+      <Health8Blog/>
 
       {/* some of them are pending finish them before hosting */}
     </div>

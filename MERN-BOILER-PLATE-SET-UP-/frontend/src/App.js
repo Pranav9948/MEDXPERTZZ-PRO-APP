@@ -19,7 +19,7 @@ function App() {
       <div className="fixed-header">
        
        {
-         userDetails?.isAdmin ? ' ' :  <Navbars/>
+         userDetails?.isAdmin ? ' '  : userDetails?.isDoctor ? ' ' :  <Navbars/>
        }  
         
       </div>

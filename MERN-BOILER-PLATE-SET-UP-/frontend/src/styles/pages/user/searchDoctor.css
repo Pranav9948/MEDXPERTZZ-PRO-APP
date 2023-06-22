@@ -182,34 +182,27 @@
 
 
 
-
-      .bannerImagess{
-
-        background: url('../../../ProjectImages//searchDoctrs.jpg');
-         height: 100vh;
-         background-size: cover;
-         background-position: center center;
-        
-        overflow: hidden;
-        background-repeat: no-repeat;
-        padding-top: 300px;
-        position: relative;
-       
-        
+    .bannerImagess {
+      background: url('../../../ProjectImages//searchDoctrs.jpg');
+      background-size: contain;
+      margin-top: 80px;
+      max-width: 100%;
+      overflow: hidden;
+      background-repeat: no-repeat;
+     
     }
 
 
     .bannerss{
 
-         
+       margin-top: -670px;
         background: linear-gradient(to right, #800000, #d72365);
         height: 200vh;
         background-size: cover;
         background-position: center;
-        overflow: hidden;
+      
         background-repeat: no-repeat;
-        padding-top: 100px;
-        position: relative;
+        
         
     }
     
@@ -219,9 +212,9 @@
         border: 1px solid #ccc;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        padding: 30px;
+        padding: 30px ;
         margin-bottom: 30px;
-        margin-left: 110px;
+         width: 340px;
       }
 
 
@@ -230,8 +223,8 @@
     width: 40%;
     min-width: 200px;
     max-width: 300px;
-    margin: 20px;
-    margin-left:140px;
+    margin: 20px auto;
+   
   }
 
     

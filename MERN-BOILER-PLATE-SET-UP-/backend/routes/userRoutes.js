@@ -62,13 +62,13 @@ router.get("/get-appointments-by-user-id",Protect,getUserAppointments);
 
 
 
-router.post("/search-doctors",Protect,searchDoctors);
+router.post("/search-doctors",searchDoctors);
 
 router.get("/getblogs",getBlogs);
 
 router.get("/getdetailedblog/:blogId",getDetailedBlogs);
 
-router.delete('/cancelappointment',cancelAppointment)
+router.delete('/cancelappointment',Protect,cancelAppointment)
 
 
 

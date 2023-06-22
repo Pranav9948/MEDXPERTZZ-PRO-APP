@@ -16,7 +16,7 @@ function ApplyForDoctorAcc() {
       <Cardz />
 
       <Container>
-        <DoctorForm/>
+        <DoctorForm/> 
       </Container>
       
     </>

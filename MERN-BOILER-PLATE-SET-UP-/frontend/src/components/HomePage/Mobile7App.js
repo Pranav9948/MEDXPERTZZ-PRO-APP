@@ -68,125 +68,133 @@ const onChange = (date, dateString) => {
 };
 
 
-  return (
-    <div className="mobile7app">
-      <Row className="justify-content-center">
-        <h1>Book An Instant Appointment Now</h1>
+return (
+  <div className="mobile7app">
+    <Row className="justify-content-center">
+      <h1>Book An Instant Appointment Now</h1>
 
-        <Col lg={5} xs={12}>
-          <div className="bookOnMobile">
-            <div className="mobileScreen">
-              <div className="applyForm">
-                <h6 className="fw-bold mb-4 mt-3 text-primary">
-                  BOOK APPOINTMENT
-                </h6>
-                <Form
-                  name="basic"
-                  labelCol={{
-                    span: 8,
-                  }}
-                  wrapperCol={{
-                    span: 16,
-                  }}
-                  style={{
-                    maxWidth: 700,
-                  }}
-                  initialValues={{
-                    remember: true,
-                  }}
-                  onFinish={onFinish}
-                  onFinishFailed={onFinishFailed}
-                  autoComplete="off"
+      <Col lg={5} xs={12}>
+        <div className="bookOnMobile">
+          <div className="mobileScreen">
+            <div className="applyForm">
+              <h6 className="fw-bold mb-4 mt-3 text-primary">
+                BOOK APPOINTMENT
+              </h6>
+              <Form
+                name="basic"
+                labelCol={{
+                  span: 8,
+                }}
+                wrapperCol={{
+                  span: 16,
+                }}
+                style={{
+                  maxWidth: 700,
+                }}
+                initialValues={{
+                  remember: true,
+                }}
+                onFinish={onFinish}
+                onFinishFailed={onFinishFailed}
+                autoComplete="off"
+              >
+                <Form.Item
+                  name="department"
+                  rules={[
+                    {
+                      required: true,
+                    },
+                  ]}
                 >
-                  <Form.Item
-                    name="department"
-                    rules={[
-                      {
-                        required: true,
-                      },
-                    ]}
+                  <Select
+                    placeholder="Select Department"
+                    onChange={onGenderChange}
+                    allowClear
+                    style={{ width: "190px", fontWeight: "900" }}
                   >
-                    <Select
-                      placeholder="Select Department"
-                      onChange={onGenderChange}
-                      allowClear
-                      style={{ width: "190px", fontWeight: "900" }}
-                    >
-                      <Option value="male">male</Option>
-                      <Option value="female">female</Option>
-                      <Option value="other">other</Option>
-                    </Select>
-                  </Form.Item>
+                    <Option value="male">male</Option>
+                    <Option value="female">female</Option>
+                    <Option value="other">other</Option>
+                  </Select>
+                </Form.Item>
 
-                  <Form.Item
-                    className="mt-4"
-                    name="doctor"
-                    rules={[
-                      {
-                        required: true,
-                      },
-                    ]}
+                <Form.Item
+                  className="mt-4"
+                  name="doctor"
+                  rules={[
+                    {
+                      required: true,
+                    },
+                  ]}
+                >
+                  <Select
+                    placeholder="Select Doctor"
+                    onChange={onGenderChange}
+                    allowClear
+                    style={{ width: "190px", fontWeight: "900" }}
                   >
-                    <Select
-                      placeholder="Select Doctor"
-                      onChange={onGenderChange}
-                      allowClear
-                      style={{ width: "190px", fontWeight: "900" }}
-                    >
-                      <Option value="male">male</Option>
-                      <Option value="female">female</Option>
-                      <Option value="other">other</Option>
-                    </Select>
-                  </Form.Item>
+                    <Option value="male">male</Option>
+                    <Option value="female">female</Option>
+                    <Option value="other">other</Option>
+                  </Select>
+                </Form.Item>
 
-                  <Form.Item>
-                    <Space direction="vertical">
-                      <DatePicker
-                        onChange={onChange}
-                        style={{ width: "200px" }}
-                      />
-                    </Space>
-                  </Form.Item>
+                <Form.Item>
+                  <Space direction="vertical">
+                    <DatePicker
+                      onChange={onChange}
+                      style={{ width: "200px" }}
+                    />
+                  </Space>
+                </Form.Item>
 
-                  <Form.Item>
-                    <TimePicker.RangePicker style={{ width: "200px" }} />
-                  </Form.Item>
+                <Form.Item>
+                  <TimePicker.RangePicker style={{ width: "200px" }} />
+                </Form.Item>
 
-                  <Button
-                    type="primary"
-                    htmlType="submit"
-                    style={{ width: "200px" }}
-                  >
-                    Book Now
-                  </Button>
-                </Form>
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  style={{ width: "200px" }}
+                >
+                  Book Now
+                </Button>
+              </Form>
 
-                <img src={bookingz} className="bookNow"></img>
-                <img src={BookNow} className='booknow' ></img>
-              </div>
+              <img src={bookingz} className="bookNow" alt="" />
+              <img src={BookNow} className="booknow" alt="" />
             </div>
           </div>
-        </Col>
+        </div>
+      </Col>
 
-        <Col lg={7} xs={12}>
-          <div className="mobilePhoto d-flex">
-            <Image src={mobile} className="mob" />
+      <Col lg={7} xs={12}>
+        <Row>
+          <div className="mobilePhoto flex">
+           <div>
+            <Image src={mobile} className="mob" alt="" />
+            </div>
             <div className="girlmove">
-              <Image src={girl} style={{ marginLeft: "-250px" }} />
+              <Image src={girl} alt="" />
+
+              
             </div>
 
             <div>
-              <Image src={address} className="phoneaddress" />
-              <Image
-                src={settings}
-                className="phonesettings bounce-out-top  "
-              />
-            </div>
+                <Image src={address} className="phoneaddress" alt="" />
+                <Image
+                  src={settings}
+                  className="phonesettings bounce-out-top"
+                  alt=""
+                />
+              </div>
           </div>
-        </Col>
-      </Row>
-    </div>
-  );
+        </Row>
+      </Col>
+    </Row>
+  </div>
+);
+
 }
 
 export default Mobile7App;

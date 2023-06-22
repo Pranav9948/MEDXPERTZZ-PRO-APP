@@ -1,0 +1,24 @@
+
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding-top: 50px;
+  }
+  
+  .loader-gif {
+    width: 100%;
+    height: 90vh;
+   
+  }
+  
+
+  
+  /* Media query for mobile devices */
+  @media (max-width: 767px) {
+    .loader-gif {
+      max-width: 80%;
+    }
+  }
+  

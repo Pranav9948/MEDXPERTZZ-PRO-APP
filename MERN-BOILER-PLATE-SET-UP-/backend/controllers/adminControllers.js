@@ -3,7 +3,15 @@ import USERS from "../models/userModel.js";
 import DOCTORS from '../models/doctorModel.js'
 import asyncHandler from "../middleware/asyncHandler.js";
 
-const showalluserz = async (req, res) => {
+
+// @desc    showalluserz
+// @route   GET /api/admin/showUserList
+// @access  Private,ADMIN
+
+
+
+
+const showalluserz = async (req, res) => { 
   try {
 
     const showallusers = await USERS.find({ isAdmin: false });
@@ -18,6 +26,14 @@ const showalluserz = async (req, res) => {
       .json({ message: "fetching userslist failed", err, success: false });
   }
 };
+
+
+// @desc   getUserDetails
+// @route   GET /api/admin/users/:userId
+// @access  Private,ADMIN
+
+
+
 
 const getUserDetails = async (req, res) => {
   try {
@@ -37,6 +53,13 @@ const getUserDetails = async (req, res) => {
   }
 };
 
+
+// @desc   updateUserz
+// @route   PATCH /api/admin/updateUser/:userId
+// @access  Private,ADMIN
+
+
+
 const updateUserz = async (req, res, next) => {
   try {
     const userId = req.params.userId;
@@ -45,27 +68,33 @@ const updateUserz = async (req, res, next) => {
 
     await USERS.findByIdAndUpdate(userId, data)
       .then((result) => {
-        console.log("Updated User : ", result);
+        
       })
       .catch((error) => {
-        console.log(error);
+       
       });
 
     const updatedUser = await USERS.findById(userId);
-    console.log("editable", updatedUser);
-
+   
     res.status(200).send({
       message: "User updated successfully",
       success: true,
       updatedUser,
     });
   } catch (err) {
-    console.log("erroccured", err);
+   
     res
       .status(500)
       .send({ message: "some error occured", success: false, err });
   }
 };
+
+// @desc   deleteUserz
+// @route   DELETE /api/admin/deleteUsers/:userId
+// @access  Private,ADMIN
+
+
+
 
 const deleteUserz = async (req, res) => {
   try {
@@ -73,10 +102,10 @@ const deleteUserz = async (req, res) => {
 
     USERS.findByIdAndRemove(userId)
       .then((result) => {
-        console.log("Removed User : ");
+       
       })
       .catch((error) => {
-        console.log(error);
+        
       });
 
     res.status(200).send({
@@ -84,31 +113,36 @@ const deleteUserz = async (req, res) => {
       success: true,
     });
   } catch (err) {
-    console.log("123err", err);
+    
     res
       .status(500)
       .send({ message: "deleting users failed", err, success: false });
   }
 };
 
+
+// @desc   blockUser
+// @route  PATCH /api/admin/block/:userId
+// @access  Private,ADMIN
+
+
 const blockUser = async (req, res) => {
 
   
-console.log("55552 ublock adminId", req.params.userId);
- 
+
 
   try {
     const user_id =   req.params.userId;
-    console.log("xz", user_id);
+  
 
     USERS.findByIdAndUpdate(user_id, {
       isBlocked: true,
     })
       .then((result) => {
-        console.log("blocked User : ", result);
+       
       })
       .catch((error) => {
-        console.log(error);
+        
       });
 
     const userDetails =await USERS.findById( user_id );;
@@ -123,19 +157,26 @@ console.log("55552 ublock adminId", req.params.userId);
   }
 };
 
+
+// @desc  unblockUser
+// @route  PATCH /api/admin/unblock/:userId
+// @access  Private,ADMIN
+
+
+
 const unblockUser = async (req, res) => {
   try {
     const user_id = req.params.userId;
-    console.log("xz", user_id);
+    
 
     USERS.findByIdAndUpdate(user_id, {
       isBlocked: false,
     })
       .then((result) => {
-        console.log("blocked User : ", result);
+      
       })
       .catch((error) => {
-        console.log(error);
+        
       });
 
     const userDetails = await USERS.findById(user_id );
@@ -149,6 +190,11 @@ const unblockUser = async (req, res) => {
       .send({ message: "error unblocking user", success: false, err });
   }
 };
+
+// @desc  getUserProfile
+// @route  GET /api/admin/profile
+// @access  Private,ADMIN
+
 
 const getUserProfile = asyncHandler(async (req, res) => {
 
@@ -175,7 +221,7 @@ const getUserProfile = asyncHandler(async (req, res) => {
   
     
   } catch (error) {
-    console.log(error);
+    
 
     res.status(400);
     throw new Error("Error occcured");
@@ -184,12 +230,17 @@ const getUserProfile = asyncHandler(async (req, res) => {
 })
 
 
+// @desc  adminViewAllDoctors
+// @route  GET /api/admin/viewAllDoctors
+// @access  Private,ADMIN
+
+
+
 
 const adminViewAllDoctors = async (req, res) => {
   try {
     const allDoctors = await DOCTORS.find({ status:"Approved" });
-    console.log("view",allDoctors);
-
+   
     res.json(allDoctors);
 
   } catch (err) {
@@ -201,16 +252,21 @@ const adminViewAllDoctors = async (req, res) => {
   }
 };
 
+// @desc   detailedDoctorVerify
+// @route  GET /api/admin/detailedDoctorsVerifyPage/:doctorId
+// @access  Private,ADMIN
+
+
+
+
 const detailedDoctorVerify = async (req, res) => {
   try {
-    console.log("reacheddoc");
+  
     const doctorId = req.params.doctorId;
-    console.log("1hhh23", doctorId);
-
+   
     const allDoctorRequest = await DOCTORS.findOne({ _id: doctorId });
 
-    console.log("222",allDoctorRequest);
-
+   
     res.status(200).send(
       
       allDoctorRequest,
@@ -224,43 +280,45 @@ const detailedDoctorVerify = async (req, res) => {
   }
 };
 
+
+
+// @desc   approveDoctorRequest
+// @route  PATCH /api/admin/approveDoctorAccount/:doctorId
+// @access  Private,ADMIN
+
+
 const approveDoctorRequest = async (req, res) => {
   try {
-    console.log("reached");
+   
     const doctorId = req.params.doctorId;
-    console.log("123", doctorId);
-
+    
     const DoctorDetails = await DOCTORS.find({ _id: doctorId });
 
-    console.log("docD", DoctorDetails);
-
+  
     const userIds = DoctorDetails[0]?.userId;
-    console.log("2345", userIds);
-
+    
     const userDEtailzzzz = await USERS.find({ _id: userIds });
 
-    console.log("23456", userDEtailzzzz);
-
+    
     await USERS.findByIdAndUpdate(userIds, { isDoctor: true })
       .then((result) => {
-        console.log("Updated User : ", result);
+       
       })
       .catch((error) => {
-        console.log(error, "error occured while updating...");
+        
       });
 
     await DOCTORS.findByIdAndUpdate(doctorId, { status: "Approved" })
       .then((result) => {
-        console.log("Updated User : ", result);
+        
       })
       .catch((error) => {
-        console.log(error, "error occured while updating...");
+       
       });
 
     const userDetails = await USERS.find({ _id: userIds });
 
-    console.log("m", userDetails);
-
+   
     const unseenNotifications = userDetails[0]?.unseenNotifications;
 
     unseenNotifications?.push({
@@ -274,10 +332,10 @@ const approveDoctorRequest = async (req, res) => {
 
     await USERS.findByIdAndUpdate(userIds, { unseenNotifications })
       .then((result) => {
-        console.log("Updated Userkk : ", result);
+       
       })
       .catch((error) => {
-        console.log(error, "error occured while updating...");
+        
       });
 
     res.status(200).send({
@@ -285,7 +343,7 @@ const approveDoctorRequest = async (req, res) => {
       success:true
     });
   } catch (err) {
-    console.log(err);
+   
     res.status(500).send({
       message: "Doctor Approval Failed",
       success: false,
@@ -294,20 +352,25 @@ const approveDoctorRequest = async (req, res) => {
   }
 };
 
+
+// @desc   RejectDoctorAccount
+// @route  DELETE /api/admin/RejectDoctorAccount/:doctorId
+// @access  Private,ADMIN
+
+
+
 const RejectDoctorAccount = async (req, res) => {
   try {
-    console.log("reached");
+    
     const doctorId = req.params.doctorId;
-    console.log("123", doctorId);
-
-
+ 
 
    await DOCTORS.findByIdAndRemove(doctorId)
     .then((result) => {
-      console.log("Removed doctor Apply request : ");
+      
     })
     .catch((error) => {
-      console.log(err);
+     
     });
 
     res.status(200).send({

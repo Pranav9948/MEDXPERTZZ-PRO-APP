@@ -27,7 +27,7 @@ function Working() {
               <Card.Text className="workpara">
                 instant appointment with Doctor guaranteed
               </Card.Text>
-              <Link to='/viewourdoctors'><Button variant="warning" size="lg">
+              <Link to='/viewourdoctors'><Button className='bg-orange-500  fw-bold text-white mt-4 mb-4' size="lg">
                 Book Appointments
               </Button></Link> 
             </Card.Body>
@@ -53,7 +53,7 @@ function Working() {
               </Card.Text>
 
 
-              <Link to='/view-appointments'><Button variant="warning" size="lg">
+              <Link to='/view-appointments'><Button className='bg-yellow-500   fw-bold text-dark mt-4 mb-4' size="lg">
               See Previous Visits
               </Button></Link> 
 
@@ -81,8 +81,8 @@ function Working() {
                 life
               </Card.Text>
 
-              <Link to='/getallblogs'><Button variant="warning" size="lg">
-                Book Appointments
+              <Link to='/getallblogs'><Button className='bg-red-500 text-white fw-bold mt-4 mb-4' size="lg">
+                Read Health Blogs
               </Button></Link> 
 
             </Card.Body>

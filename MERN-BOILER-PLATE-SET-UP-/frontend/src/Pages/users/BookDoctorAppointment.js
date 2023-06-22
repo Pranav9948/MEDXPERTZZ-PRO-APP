@@ -7,7 +7,8 @@ import Container from "react-bootstrap/esm/Container";
 import StripeCheckout from "react-stripe-checkout";
 import { useBookAppointmentMutation, useCheckAvailiabiltyMutation, useGetDoctorByIdQuery, useOnlinebookAppointmentMutation } from "../../redux/slices/userSlice";
 import { toast } from "react-toastify";
-
+import Gif from '../../components/Gif'
+import Message from '../../components/Message'
 
 function BookDoctorAppointment() {
   const [isAvailable, setIsAvailable] = useState(false);
@@ -143,7 +144,22 @@ function BookDoctorAppointment() {
   };
 
   return (
+
     <>
+    {checkLoad && <Gif />}
+    {bookLoad && <Gif />}
+    {bookonlineLoad && <Gif />}
+    
+
+    {isLoading ? (
+      <Gif />
+    ) : isError ? (
+      <Message variant="danger">
+        {isError?.data.message || isError.error}
+      </Message>
+    ) : (
+
+      <>
       <div className="bannerImagezz"></div>
       <div className="bannerzz">
         <div className="bannerContentz">
@@ -181,7 +197,7 @@ function BookDoctorAppointment() {
 
 <Col lg={3}></Col>
 
-                  <h1 className="page-title text-white mt-4 text-center">
+                  <h1 className="page-title drName text-white mt-4 text-center">
                     Dr: {doctor?.firstName} {doctor?.lastName}
                   </h1>
                 </Col>
@@ -331,8 +347,11 @@ function BookDoctorAppointment() {
           </svg>
         </div>
       </div>
+      </>
+      )}
     </>
   );
-}
+};
+
 
 export default BookDoctorAppointment;
